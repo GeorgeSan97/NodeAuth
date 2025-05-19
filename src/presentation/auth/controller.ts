@@ -1,13 +1,17 @@
-import { Router } from 'express';
-//import { AuthController } from './controller';
-//import { AuthDatasourceImpl, AuthRepositoryImpl } from '../../infrastructure';
- 
-export class AuthRoutes {
-    static get routes(): Router{
-        const router = Router();
+import { Request,Response } from "express"
 
-        router.use('/api/auth', AuthRoutes.routes);
-        
-        return router;
+export class AuthController {
+    //Aquí sí voy a aplicar inyección de dependencias
+    constructor() {
+
+    }
+
+
+    registerUser =  (req: Request, res:Response) => {
+        res.json('resgisterUserContrtoller');
+    }
+    
+    loginUser =  (req: Request, res:Response) => {
+        res.json('loginUserContrtoller');
     }
 }
