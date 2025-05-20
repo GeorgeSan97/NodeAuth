@@ -33,6 +33,7 @@ export class AuthController {
         .catch( error => this.handleError(error, res));
     }
     
+    
     loginUser =  (req: Request, res:Response) => {
         res.json('loginUserContrtoller');
     }
