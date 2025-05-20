@@ -5,7 +5,7 @@ export class UserMapper {
 
         const {id, _id, name, email, password, roles} = object;
 
-        if (!_id || id) throw CustomError.badRequest('Missing id');
+        if (!_id || !id) throw CustomError.badRequest('Missing id');
 
         if (!name) throw CustomError.badRequest('Missing name');
 
