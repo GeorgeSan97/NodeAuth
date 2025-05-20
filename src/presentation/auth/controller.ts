@@ -28,11 +28,12 @@ export class AuthController {
             res.json({
                 user,
                 token: await JwtAdapter.generateToken({email: user.email})
+                
             })
         } )
         .catch( error => this.handleError(error, res));
     }
-    
+
     
     loginUser =  (req: Request, res:Response) => {
         res.json('loginUserContrtoller');
