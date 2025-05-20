@@ -11,3 +11,4 @@ export class BcryptAdapter{
         return compareSync( password, hashed );
     }
 }
+
