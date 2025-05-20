@@ -1,4 +1,4 @@
-//import { UserModel } from "../../data/mongodb";
+import { UserModel } from "../../data/mongodb";
 import { AuthDatasource, CustomError, RegisterUserDto,UserEntity } from "../../domain";
 
 export class AuthDatasourceImpl implements AuthDatasource {
@@ -11,30 +11,29 @@ export class AuthDatasourceImpl implements AuthDatasource {
         {
             //aquí vamos a hacer todo el proceso supponiendo que ya tenemos la base de datos
             //1. Verificar si el correo exite
-            //const exist = await UserModel.findOne({email});
+            const exist = await UserModel.findOne({email});
 
-            /* if (exist) throw CustomError.badRequest('El correo ya existe');
+            if (exist) throw CustomError.badRequest('El correo ya existe');
             
+            //2. Encriptar la contraseña
             const user = await UserModel.create({
                 name: name,
                 email: email,
                 password: password,
-            }); */
+            }); 
 
-            //2. Encriptar la contraseña
 
-            //await user.save();
+            await user.save();
 
             //3. Mapear la respuesta a nuestra entidad
+            //todo: falta un mapper
             return new UserEntity
             (
-                '1',
+                user.id,
                 name,
                 email,
                 password,
-                //user.roles, 
-                ["ADMIN_ROLE"]
-                
+                user.roles,  
             );
         } 
         catch (error) 
