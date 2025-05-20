@@ -25,7 +25,7 @@ export class AuthDatasourceImpl implements AuthDatasource {
             //1. Verificar si el correo exite
             const exist = await UserModel.findOne({email});
 
-            if (exist) throw CustomError.badRequest('El correo ya existe');
+            if (exist) throw CustomError.badRequest('El usuario ya existe');
             
             //2. Encriptar la contraseña
             const user = await UserModel.create({
