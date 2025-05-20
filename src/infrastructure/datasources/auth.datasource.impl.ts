@@ -28,7 +28,7 @@ export class AuthDatasourceImpl implements AuthDatasource {
             //3. Mapear la respuesta a nuestra entidad
             return new UserEntity
             (
-                "1",
+                '1',
                 name,
                 email,
                 password,
